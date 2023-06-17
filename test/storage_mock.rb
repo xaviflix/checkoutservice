@@ -1,17 +1,6 @@
-class DatabaseStorage
-  @@instance = nil
+require_relative '../storage/storage'
 
-  def self.instance
-    if @@instance.nil?
-      @@instance = new
-    end
-    @@instance
-  end
-
-  def self.reset
-    @@instance.reset unless @@instance.nil?
-  end
-
+class StorageMock < Storage
   def initialize
     @products_table = {}
     @price_rules_table = {}

@@ -1,4 +1,4 @@
-require_relative '../storage/database_storage'
+require_relative '../storage/storage'
 require_relative '../utils/types_helper'
 
 class BaseModel
@@ -7,7 +7,7 @@ class BaseModel
   attr_accessor :id
 
   def initialize(** args)
-    @storage = DatabaseStorage.instance
+    @storage = STORAGE
   end
 
   def save

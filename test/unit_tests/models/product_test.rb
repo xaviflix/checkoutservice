@@ -3,7 +3,7 @@ require_relative '../../../models/product_model'
 
 class ProductTest < Minitest::Test
   def setup
-    DatabaseStorage.reset
+    STORAGE.reset
   end
 
   def test_when_create_product_then_fails_invalid_name

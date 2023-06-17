@@ -3,7 +3,7 @@ require_relative '../../../models/price_rule_model'
 
 class PriceRuleTest < Minitest::Test
   def setup
-    DatabaseStorage.reset
+    STORAGE.reset
   end
 
   def test_when_create_price_rule_then_fails_invalid_type
