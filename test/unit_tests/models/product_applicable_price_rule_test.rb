@@ -3,7 +3,7 @@ require_relative '../../../models/product_applicable_price_rule_model'
 
 class ProductApplicablePriceRuleTest < Minitest::Test
   def setup
-    DatabaseStorage.reset
+    STORAGE.reset
   end
 
   def test_when_create_product_applicable_price_rule_then_fails_invalid_product_id

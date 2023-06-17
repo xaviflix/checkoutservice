@@ -1,5 +1,4 @@
 require_relative '../test_helper'
-require_relative '../../storage/database_storage'
 require_relative '../../models/product_model'
 require_relative '../../models/price_rule_model'
 require_relative '../../models/product_applicable_price_rule_model'
@@ -7,10 +6,9 @@ require_relative '../../service/cart_checkout_service'
 
 class CartCheckoutServiceTest < Minitest::Test
   def setup
-    @storage = DatabaseStorage.instance
-    @storage.reset
+    STORAGE.reset
     _create_test_scenario
-    @cart_checkout_service = CartCheckoutService.new(storage: @storage)
+    @cart_checkout_service = CartCheckoutService.new(storage: STORAGE)
     @cart_checkout_service.clear # Reset accumulated data from previous test
     super
   end
