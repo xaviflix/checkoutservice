@@ -1,13 +1,25 @@
 require 'rake/testtask'
 
-Rake::TestTask.new("integration-tests" => :setup_coverage) do |t|
-  t.test_files = FileList["test/integration_tests/test_*.rb"]
-  t.verbose = true
-  t.warning = false
+Rake::TestTask.new(:unit_test) do |task|
+  task.pattern = "test/unit_tests/**/*_test.rb"
+  task.verbose = true
+  task.warning = false
 end
 
-Rake::TestTask.new("unit-tests" => :setup_coverage) do |t|
-  t.test_files = FileList["test/unit_tests/test_*.rb"]
-  t.verbose = true
-  t.warning = false
+Rake::TestTask.new(:integration_test) do |task|
+  task.pattern = "test/integration_tests/**/*_test.rb"
+  task.verbose = true
+  task.warning = false
 end
+
+Rake::TestTask.new(:all_test) do |task|
+  task.pattern = "test/**/**/*_test.rb"
+  task.verbose = true
+  task.warning = false
+end
+
+Rake::TestTask.new(:single_test) do |task|
+  task.verbose = true
+  task.warning = false
+end
+
