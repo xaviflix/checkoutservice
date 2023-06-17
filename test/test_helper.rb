@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'minitest/reporters'
+require "minitest/pride"
 
 require_relative '../utils/exceptions'
 require_relative 'storage_mock'
