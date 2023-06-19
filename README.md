@@ -36,13 +36,21 @@ a deeper review to ensure there are no side effects (mainly with old data in the
 PriceRuleExecutor, based on the PriceRule type, selects the logic to be run. Another option, would be for the PriceRule 
 to store the name of the PriceRuleExecutor module name and the input parameters and then, have a more simple PriceRuleExecutor 
 where we load the desired module at runtime with the parameters and execute it. This proposal, despite being elegant, is 
-somehow more obscure and cumbersome, as implies DB migrations for old data in case of renaming some XxxRuleExecutor, 
+somehow more obscure and cumbersome, as it implies DB migrations for old data in case of renaming some XxxRuleExecutor, 
 which is annoying.
 - **Static typing vs Dynamic typing**: I know Ruby 3 introduces static typing, but I did not use it here. In my current 
 team, when working with Python we moved to static typing, and it has its advantages (despite having bad parameters name 
 the code is clear), but also disadvantages (many times the code is extremely verbose) ... Open discussion here!
 
 ## Tests
+
+### Tests policy
+- I defined the **integrity tests** with the test provided in the coding exercise, somehow they are the feature validation
+test defined to move to PRD
+- On the other hand, the **unit tests** are the ones validating unit components and should be the ones that will ensure 
+the verification of each price rule algorithm beyond the scope of the integration tests. 
+
+### Tests run
 - To run all tests execute ``rake all_test``
 - To run only the unit tests execute ``rake unit_test``
 - To run only the integration tests execute ``rake integration_test``
